@@ -35,46 +35,61 @@
 
 
     <link rel="stylesheet" href="main.css">
+
+
+    <script>
+        function urlchange() {
+            userurl = document.getElementById("urlinput").value;
+            document.getElementById("cache-google").setAttribute("href", "http://webcache.googleusercontent.com/search?q=cache:" + userurl);
+            document.getElementById("cache-archiveorg").href = "https://web.archive.org/web/*/" + userurl;
+        }
+    </script>
+
 </head>
 
 <body>
 
-    <div class="center-block">
-        <div class="container">
+    <!--    In case browser loads text into our box without calling its onchange()    -->
 
-            <div class="form-group label-floating">
-                <label for="i5" class="control-label">Url</label>
-                <input type="text" class="form-control" id="i5">
+    <body onload="urlchange()">
+
+
+        <div class="center-block">
+            <div class="container">
+
+                <div class="form-group label-floating">
+                    <label for="urlinput" class="control-label">Url</label>
+                    <input type="text" class="form-control" id="urlinput" onchange="urlchange()">
+                </div>
+
+                <!-- Bigger than xs, show horizontally -->
+                <div class="btn-group-wrap hidden-xs">
+                    <a type="button" class="btn btn-raised btn-primary" href="#" id="cache-google">Google</a>
+                    <a type="button" class="btn btn-raised btn-primary" href="#" id="cache-archiveorg">Archive.org</a>
+                </div>
+                <!-- xs or smaller, show vertically -->
+                <div class="btn-group-vertical visible-xs">
+                    <a type="button" class="btn btn-raised btn-primary" href="#" id="cache-google">Google</a>
+                    <a type="button" class="btn btn-raised btn-primary" href="#" id="cache-archiveorg">Archive.org</a>
+                </div>
+
+
+                <!-- Twitter Bootstrap -->
+                <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+                <!-- Material Design for Bootstrap -->
+                <script src="dist/js/material.min.js"></script>
+                <script src="dist/js/ripples.min.js"></script>
+                <script>
+                    $.material.init();
+                </script>
             </div>
-
-            <!-- Bigger than xs, show horizontally -->
-            <div class="btn-group-wrap hidden-xs">
-                <button type="button" class="btn btn-raised btn-primary" id="cache-google">Google</button>
-                <button type="button" class="btn btn-raised btn-primary" id="cache-archiveorg">Archive.org</button>
-                <button type="button" class="btn btn-raised btn-primary" id="cache-coralcache">Coral Cache</button>
-            </div>
-            <!-- xs or smaller, show vertically -->
-            <div class="btn-group-vertical visible-xs">
-                <button type="button" class="btn btn-raised btn-primary" id="cache-google">Google</button>
-                <button type="button" class="btn btn-raised btn-primary" id="cache-archiveorg">Archive.org</button>
-                <button type="button" class="btn btn-raised btn-primary" id="cache-coralcache">Coral Cache</button>
-            </div>
-
-
-            <!-- Twitter Bootstrap -->
-            <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
-            <!-- Material Design for Bootstrap -->
-            <script src="dist/js/material.min.js"></script>
-            <script src="dist/js/ripples.min.js"></script>
-            <script>
-                $.material.init();
-            </script>
         </div>
-    </div>
 
 
-</body>
+
+
+    </body>
 
 </html>
