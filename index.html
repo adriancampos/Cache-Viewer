@@ -45,13 +45,29 @@
         }
     </script>
 
+    <script>
+        function onLoad() {
+            document.getElementById("urlinput").addEventListener("keypress", function (event) {
+                if (event.keyCode == 13){
+                    event.preventDefault();
+                    urlchange();
+                    document.getElementById("cache-google").click();
+                }
+                return false;
+            });
+
+            urlchange();
+
+        }
+    </script>
+
 </head>
 
 <body>
 
     <!--    In case browser loads text into our box without calling its onchange()    -->
 
-    <body onload="urlchange()">
+    <body onload="onLoad()">
 
 
         <div class="center-block">
