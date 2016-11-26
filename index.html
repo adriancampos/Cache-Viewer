@@ -41,7 +41,9 @@
         function urlchange() {
             userurl = document.getElementById("urlinput").value;
             document.getElementById("cache-google").setAttribute("href", "http://webcache.googleusercontent.com/search?q=cache:" + userurl);
+            document.getElementById("m_cache-google").setAttribute("href", "http://webcache.googleusercontent.com/search?q=cache:" + userurl);
             document.getElementById("cache-archiveorg").href = "https://web.archive.org/web/*/" + userurl;
+            document.getElementById("m_cache-archiveorg").href = "https://web.archive.org/web/*/" + userurl;
         }
     </script>
 
@@ -90,8 +92,8 @@
                 </div>
                 <!-- xs or smaller, show vertically -->
                 <div class="btn-group-vertical visible-xs">
-                    <a type="button" class="btn btn-raised btn-primary" href="#" id="cache-google">Google</a>
-                    <a type="button" class="btn btn-raised btn-primary" href="#" id="cache-archiveorg">Archive.org</a>
+                    <a type="button" class="btn btn-raised btn-primary" href="#" id="m_cache-google">Google</a>
+                    <a type="button" class="btn btn-raised btn-primary" href="#" id="m_cache-archiveorg">Archive.org</a>
                 </div>
 
 
